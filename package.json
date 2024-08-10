@@ -1,0 +1,27 @@
+{
+  "name": "aethon-arion-core",
+  "version": "0.1.0",
+  "description": "The Arion project core classes",
+  "scripts": {
+    "build": "cp package.json ./dist/ & tsc",
+    "watch": "cp package.json ./dist/ & tsc -w & nodemon -q -w dist dist/index.js",
+    "test": "ts-node node_modules/jasmine/bin/jasmine --config=./tests/jasmine.json --reporter=jasmine-console-reporter"
+  },
+  "homepage": "https://arion.aethon.sg",
+  "author": "Konstantinos Dimitriou <konstantinos.dimitriou@aethon.sg>",
+  "license": "MIT",
+  "dependencies": {
+    "ml-matrix": "^6.11.0",
+    "rxjs": "~7.8.1"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^5.1.4",
+    "@types/node": "^20.11.14",
+    "jasmine": "^5.1.0",
+    "jasmine-reporters": "^2.5.2",
+    "jasmine-console-reporter": "^3.1.0",
+    "prettier": "^3.2.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2"
+  }
+}
