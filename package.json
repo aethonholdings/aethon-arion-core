@@ -1,6 +1,6 @@
 {
   "name": "aethon-arion-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The Arion project core classes",
   "repository": "github:aethonholdings/aethon-arion-core",
   "scripts": {
