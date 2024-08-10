@@ -2,9 +2,10 @@
   "name": "aethon-arion-core",
   "version": "0.1.0",
   "description": "The Arion project core classes",
+  "repository": "github:aethonholdings/aethon-arion-core",
   "scripts": {
-    "build": "cp package.json ./dist/ & tsc",
-    "watch": "cp package.json ./dist/ & tsc -w & nodemon -q -w dist dist/index.js",
+    "build": "cp package.json README.md ./dist/ & tsc",
+    "watch": "cp package.json README.md ./dist/ & tsc -w & nodemon -q -w dist dist/index.js",
     "test": "ts-node node_modules/jasmine/bin/jasmine --config=./tests/jasmine.json --reporter=jasmine-console-reporter"
   },
   "homepage": "https://arion.aethon.sg",
