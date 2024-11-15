@@ -18,7 +18,7 @@ export abstract class Board {
 
     getPlan(): Targets {
         return this.plan;
-    };
+    }
 
     protected _log(message: string, data?: any): void {
         this.logger.trace({

@@ -1,18 +1,19 @@
-import { Observable, lastValueFrom, map } from "rxjs";
+import { lastValueFrom, map } from "rxjs";
 import { Logger } from "../src/classes/class.logger";
 import { RandomStreamFactory } from "../src/classes/class.random.stream.factory";
 import { LogLine, SimulationConfig } from "../src/interfaces/interfaces";
-import { TestSimulation } from "./init/test.init.model";
+import { Simulation } from "../src/classes/class.simulation";
+import { Organisation } from "../src/classes/class.organisation";
 
 export function runSimulationTest(description: string, simConfig: SimulationConfig, verbose: boolean = false) {
     const logger: Logger = new Logger();
     let logger$: Promise<LogLine> | undefined;
 
     describe(description, () => {
-        let simulation: TestSimulation;
+        let simulation: Simulation;
 
         it("can initialise a simulation", () => {
-            simulation = new TestSimulation(simConfig, logger, new RandomStreamFactory());
+            simulation = new Simulation(simConfig, logger, new RandomStreamFactory(), {} as Organisation);
             if (verbose) {
                 logger$ = lastValueFrom(
                     logger.getObservable$().pipe(

@@ -15,13 +15,7 @@ export class Organisation {
     protected logger: Logger;
     private clockTick: number = 0;
 
-    constructor(
-        board: Board,
-        agentSet: AgentSet,
-        plant: Plant,
-        reporting: Reporting,
-        logger: Logger
-    ) {
+    constructor(board: Board, agentSet: AgentSet, plant: Plant, reporting: Reporting, logger: Logger) {
         this.logger = logger;
         this._log("Initialising Organisation");
         this.board = board;
@@ -49,7 +43,7 @@ export class Organisation {
     }
 
     getStateArray(): number[] {
-        let stateArray: number[] = this.agentSet.getAgentStateArray();
+        const stateArray: number[] = this.agentSet.getAgentStateArray();
         stateArray.concat(this.plant.getStateTensor());
         stateArray.concat(this.reporting.getReportingTensor());
         return stateArray;
