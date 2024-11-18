@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[classes/class.plant.ts:11](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.plant.ts#L11)
+[classes/plant.class.ts:11](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/plant.class.ts#L11)
 
 ## Properties
 
@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[classes/class.plant.ts:8](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.plant.ts#L8)
+[classes/plant.class.ts:8](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/plant.class.ts#L8)
 
 ***
 
@@ -44,7 +44,7 @@
 
 #### Defined in
 
-[classes/class.plant.ts:9](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.plant.ts#L9)
+[classes/plant.class.ts:9](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/plant.class.ts#L9)
 
 ***
 
@@ -54,7 +54,7 @@
 
 #### Defined in
 
-[classes/class.plant.ts:6](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.plant.ts#L6)
+[classes/plant.class.ts:6](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/plant.class.ts#L6)
 
 ***
 
@@ -64,7 +64,7 @@
 
 #### Defined in
 
-[classes/class.plant.ts:7](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.plant.ts#L7)
+[classes/plant.class.ts:7](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/plant.class.ts#L7)
 
 ## Methods
 
@@ -84,7 +84,7 @@
 
 #### Defined in
 
-[classes/class.plant.ts:36](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.plant.ts#L36)
+[classes/plant.class.ts:36](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/plant.class.ts#L36)
 
 ***
 
@@ -98,7 +98,7 @@
 
 #### Defined in
 
-[classes/class.plant.ts:24](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.plant.ts#L24)
+[classes/plant.class.ts:24](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/plant.class.ts#L24)
 
 ***
 
@@ -112,7 +112,7 @@
 
 #### Defined in
 
-[classes/class.plant.ts:32](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.plant.ts#L32)
+[classes/plant.class.ts:32](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/plant.class.ts#L32)
 
 ***
 
@@ -126,7 +126,7 @@
 
 #### Defined in
 
-[classes/class.plant.ts:28](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.plant.ts#L28)
+[classes/plant.class.ts:28](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/plant.class.ts#L28)
 
 ***
 
@@ -144,4 +144,4 @@
 
 #### Defined in
 
-[classes/class.plant.ts:22](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.plant.ts#L22)
+[classes/plant.class.ts:22](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/plant.class.ts#L22)

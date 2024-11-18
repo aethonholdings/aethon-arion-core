@@ -4,13 +4,13 @@
 
 [aethon-arion-core](../globals.md) / Simulation
 
-# Class: `abstract` Simulation
+# Class: Simulation
 
 ## Constructors
 
 ### new Simulation()
 
-> **new Simulation**(`simConfig`, `logger`, `randomStreamFactory`): [`Simulation`](Simulation.md)
+> **new Simulation**(`simConfig`, `logger`, `randomStreamFactory`, `organisation`): [`Simulation`](Simulation.md)
 
 #### Parameters
 
@@ -20,13 +20,15 @@
 
 • **randomStreamFactory**: [`RandomStreamFactory`](RandomStreamFactory.md)
 
+• **organisation**: [`Organisation`](Organisation.md)
+
 #### Returns
 
 [`Simulation`](Simulation.md)
 
 #### Defined in
 
-[classes/class.simulation.ts:16](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.simulation.ts#L16)
+[classes/simulation.class.ts:16](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/simulation.class.ts#L16)
 
 ## Properties
 
@@ -36,7 +38,7 @@
 
 #### Defined in
 
-[classes/class.simulation.ts:13](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.simulation.ts#L13)
+[classes/simulation.class.ts:13](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/simulation.class.ts#L13)
 
 ***
 
@@ -46,7 +48,7 @@
 
 #### Defined in
 
-[classes/class.simulation.ts:9](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.simulation.ts#L9)
+[classes/simulation.class.ts:9](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/simulation.class.ts#L9)
 
 ***
 
@@ -56,7 +58,7 @@
 
 #### Defined in
 
-[classes/class.simulation.ts:12](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.simulation.ts#L12)
+[classes/simulation.class.ts:12](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/simulation.class.ts#L12)
 
 ***
 
@@ -66,7 +68,7 @@
 
 #### Defined in
 
-[classes/class.simulation.ts:8](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.simulation.ts#L8)
+[classes/simulation.class.ts:8](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/simulation.class.ts#L8)
 
 ***
 
@@ -76,7 +78,7 @@
 
 #### Defined in
 
-[classes/class.simulation.ts:10](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.simulation.ts#L10)
+[classes/simulation.class.ts:10](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/simulation.class.ts#L10)
 
 ***
 
@@ -86,7 +88,7 @@
 
 #### Defined in
 
-[classes/class.simulation.ts:14](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.simulation.ts#L14)
+[classes/simulation.class.ts:14](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/simulation.class.ts#L14)
 
 ***
 
@@ -96,23 +98,9 @@
 
 #### Defined in
 
-[classes/class.simulation.ts:11](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.simulation.ts#L11)
+[classes/simulation.class.ts:11](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/simulation.class.ts#L11)
 
 ## Methods
-
-### initialiseOrg()
-
-> `abstract` `protected` **initialiseOrg**(): [`Organisation`](Organisation.md)
-
-#### Returns
-
-[`Organisation`](Organisation.md)
-
-#### Defined in
-
-[classes/class.simulation.ts:41](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.simulation.ts#L41)
-
-***
 
 ### run$()
 
@@ -124,4 +112,4 @@
 
 #### Defined in
 
-[classes/class.simulation.ts:27](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.simulation.ts#L27)
+[classes/simulation.class.ts:32](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/simulation.class.ts#L32)

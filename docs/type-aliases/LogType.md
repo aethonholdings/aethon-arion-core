@@ -8,6 +8,8 @@
 
 > **LogType**: `"silly"` \| `"trace"` \| `"debug"` \| `"info"` \| `"warn"` \| `"error"` \| `"fatal"`
 
+Log message types aligned with the [tslog](https://tslog.js.org/) schema
+
 ## Defined in
 
-[types/types.ts:2](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/types/types.ts#L2)
+[types/core.types.ts:9](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/types/core.types.ts#L9)

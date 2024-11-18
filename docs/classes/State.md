@@ -10,11 +10,7 @@
 
 ### new State()
 
-> **new State**(`params`?): [`State`](State.md)
-
-#### Parameters
-
-• **params?**: `any`
+> **new State**(): [`State`](State.md)
 
 #### Returns
 
@@ -22,7 +18,7 @@
 
 #### Defined in
 
-[classes/class.state.ts:2](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.state.ts#L2)
+[classes/state.class.ts:2](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/state.class.ts#L2)
 
 ## Methods
 
@@ -40,4 +36,4 @@
 
 #### Defined in
 
-[classes/class.state.ts:3](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/classes/class.state.ts#L3)
+[classes/state.class.ts:3](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/state.class.ts#L3)

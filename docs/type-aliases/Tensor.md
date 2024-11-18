@@ -8,6 +8,8 @@
 
 > **Tensor**: `number`[] \| `number`[][] \| `number`[][][] \| `number`[][][][] \| `number`[][][][][]
 
+Tensor types broadly aligned with the [tfjs](https://www.tensorflow.org/js) schema
+
 ## Defined in
 
-[types/types.ts:1](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/types/types.ts#L1)
+[types/core.types.ts:4](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/types/core.types.ts#L4)

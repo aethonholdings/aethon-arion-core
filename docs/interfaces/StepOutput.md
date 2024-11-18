@@ -14,7 +14,7 @@
 
 #### Defined in
 
-[interfaces/interfaces.ts:57](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/interfaces/interfaces.ts#L57)
+[interfaces/core.interfaces.ts:57](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/interfaces/core.interfaces.ts#L57)
 
 ***
 
@@ -24,4 +24,4 @@
 
 #### Defined in
 
-[interfaces/interfaces.ts:58](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/interfaces/interfaces.ts#L58)
+[interfaces/core.interfaces.ts:58](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/interfaces/core.interfaces.ts#L58)

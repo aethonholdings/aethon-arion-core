@@ -18,4 +18,4 @@
 
 ## Defined in
 
-[modules/module.utils.ts:102](https://github.com/aethonholdings/aethon-arion-core/blob/40d07c6762895a9f0e8c1c4a732afbc5a7189263/src/modules/module.utils.ts#L102)
+[modules/utils.module.ts:102](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/modules/utils.module.ts#L102)
