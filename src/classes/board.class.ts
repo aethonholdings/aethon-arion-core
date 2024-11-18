@@ -1,5 +1,5 @@
-import { Targets } from "../interfaces/interfaces";
-import { Logger } from "./class.logger";
+import { Targets } from "../interfaces/core.interfaces";
+import { Logger } from "./logger.class";
 
 export abstract class Board {
     protected name: string = "Board";

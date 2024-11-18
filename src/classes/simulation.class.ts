@@ -1,7 +1,7 @@
-import { RandomStreamFactory } from "./class.random.stream.factory";
-import { SimulationConfig, OrgModelConfig, StepOutput } from "../interfaces/interfaces";
-import { Organisation } from "./class.organisation";
-import { Logger } from "./class.logger";
+import { RandomStreamFactory } from "./random-stream-factory.class";
+import { SimulationConfig, OrgModelConfig, StepOutput } from "../interfaces/core.interfaces";
+import { Organisation } from "./organisation.class";
+import { Logger } from "./logger.class";
 import { Observable } from "rxjs";
 
 export class Simulation {

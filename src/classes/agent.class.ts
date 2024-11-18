@@ -1,4 +1,4 @@
-import { State } from "./class.state";
+import { State } from "./state.class";
 
 export class Agent {
     protected name: string = "Agent";

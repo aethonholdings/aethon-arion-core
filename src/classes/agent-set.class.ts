@@ -1,9 +1,9 @@
-import { Utils } from "../modules/module.utils";
-import { Agent } from "./class.agent";
-import { State } from "./class.state";
-import { RandomStream } from "./class.random.stream";
-import { AgentSetTensors, Targets } from "../interfaces/interfaces";
-import { Logger } from "./class.logger";
+import { Utils } from "../modules/utils.module";
+import { Agent } from "./agent.class";
+import { State } from "./state.class";
+import { RandomStream } from "./random-stream.class";
+import { AgentSetTensors, Targets } from "../interfaces/core.interfaces";
+import { Logger } from "./logger.class";
 
 export class AgentSet {
     protected name: string = "AgentSet";

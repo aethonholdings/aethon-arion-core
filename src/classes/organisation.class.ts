@@ -1,10 +1,10 @@
-import { Utils, type Tensor } from "../modules/module.utils";
-import { Plant } from "./class.plant";
-import { Reporting } from "./class.reporting";
-import { AgentSet } from "./class.agent.set";
-import { Board } from "./class.board";
-import { Targets } from "../interfaces/interfaces";
-import { Logger } from "./class.logger";
+import { Utils, type Tensor } from "../modules/utils.module";
+import { Plant } from "./plant.class";
+import { Reporting } from "./reporting.class";
+import { AgentSet } from "./agent-set.class";
+import { Board } from "./board.class";
+import { Targets } from "../interfaces/core.interfaces";
+import { Logger } from "./logger.class";
 
 export class Organisation {
     protected name: string = "Organisation";

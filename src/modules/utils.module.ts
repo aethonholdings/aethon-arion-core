@@ -1,6 +1,6 @@
 import * as Matrix from "ml-matrix"; // https://www.npmjs.com/package/ml-matrix
-import type { Tensor } from "../types/types";
-export type { Tensor } from "../types/types";
+import type { Tensor } from "../types/core.types";
+export type { Tensor } from "../types/core.types";
 
 export namespace Utils {
     export function tensor(dataOrShape: Tensor, initialiser?: (x?: number, y?: number) => number): Tensor {

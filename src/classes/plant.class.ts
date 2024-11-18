@@ -1,6 +1,6 @@
-import { Utils } from "../modules/module.utils";
-import type { Tensor } from "../modules/module.utils";
-import { Logger } from "./class.logger";
+import { Utils } from "../modules/utils.module";
+import type { Tensor } from "../modules/utils.module";
+import { Logger } from "./logger.class";
 
 export abstract class Plant {
     protected name: string = "Plant";
