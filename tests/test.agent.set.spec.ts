@@ -1,7 +1,7 @@
-import { AgentSet } from "../src/classes/class.agent.set";
-import { Logger } from "../src/classes/class.logger";
-import { StaticRandomStream } from "../src/classes/class.random.stream";
-import { SimulationConfig } from "../src/interfaces/interfaces";
+import { AgentSet } from "../src/classes/agent-set.class";
+import { Logger } from "../src/classes/logger.class";
+import { StaticRandomStream } from "../src/classes/random-stream.class";
+import { SimulationConfig } from "../src/interfaces/core.interfaces";
 import { TestStateA, TestStateB, testTargets, testx, testy } from "./init/test.init.model";
 
 export function runAgentSetTest(

@@ -1,9 +1,9 @@
 import { lastValueFrom, map } from "rxjs";
-import { Logger } from "../src/classes/class.logger";
-import { RandomStreamFactory } from "../src/classes/class.random.stream.factory";
-import { LogLine, SimulationConfig } from "../src/interfaces/interfaces";
-import { Simulation } from "../src/classes/class.simulation";
-import { Organisation } from "../src/classes/class.organisation";
+import { Logger } from "../src/classes/logger.class";
+import { RandomStreamFactory } from "../src/classes/random-stream-factory.class";
+import { LogLine, SimulationConfig } from "../src/interfaces/core.interfaces";
+import { Simulation } from "../src/classes/simulation.class";
+import { Organisation } from "../src/classes/organisation.class";
 
 export function runSimulationTest(description: string, simConfig: SimulationConfig, verbose: boolean = false) {
     const logger: Logger = new Logger();

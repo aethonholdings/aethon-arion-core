@@ -1,6 +1,6 @@
 // SIMCONFIGS -------------------------------------
 
-import { SimulationConfig } from "../../src/interfaces/interfaces";
+import { SimulationConfig } from "../../src/interfaces/core.interfaces";
 
 // Simple C1 simulation config
 

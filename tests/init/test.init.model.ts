@@ -1,11 +1,5 @@
-import { Organisation } from "../../src/classes/class.organisation";
-import { State } from "../../src/classes/class.state";
-import { SimulationConfig, Targets } from "../../src/interfaces/interfaces";
-import { Simulation } from "../../src/classes/class.simulation";
-import { Logger } from "../../src/classes/class.logger";
-import { RandomStreamFactory } from "../../src/classes/class.random.stream.factory";
-import { Board } from "../../src/classes/class.board";
-
+import { State } from "../../src/classes/state.class";
+import { Targets } from "../../src/interfaces/core.interfaces";
 
 // MODEL STATES -------------------------------------
 

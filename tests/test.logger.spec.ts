@@ -1,6 +1,6 @@
 import { map, Observable, firstValueFrom } from "rxjs";
-import { Logger } from "../src/classes/class.logger";
-import { LogLine } from "../src/interfaces/interfaces";
+import { Logger } from "../src/classes/logger.class";
+import { LogLine } from "../src/interfaces/core.interfaces";
 
 export function loggerTest() {
     let logger: Logger;
