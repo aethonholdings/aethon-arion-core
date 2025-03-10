@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[classes/agent.class.ts:8](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/agent.class.ts#L8)
+[classes/agent.class.ts:8](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/agent.class.ts#L8)
 
 ## Properties
 
@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[classes/agent.class.ts:4](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/agent.class.ts#L4)
+[classes/agent.class.ts:4](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/agent.class.ts#L4)
 
 ***
 
@@ -44,7 +44,7 @@
 
 #### Defined in
 
-[classes/agent.class.ts:5](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/agent.class.ts#L5)
+[classes/agent.class.ts:5](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/agent.class.ts#L5)
 
 ## Methods
 
@@ -58,7 +58,7 @@
 
 #### Defined in
 
-[classes/agent.class.ts:26](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/agent.class.ts#L26)
+[classes/agent.class.ts:26](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/agent.class.ts#L26)
 
 ***
 
@@ -72,7 +72,7 @@
 
 #### Defined in
 
-[classes/agent.class.ts:13](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/agent.class.ts#L13)
+[classes/agent.class.ts:13](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/agent.class.ts#L13)
 
 ***
 
@@ -90,7 +90,7 @@
 
 #### Defined in
 
-[classes/agent.class.ts:17](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/agent.class.ts#L17)
+[classes/agent.class.ts:17](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/agent.class.ts#L17)
 
 ***
 
@@ -108,4 +108,4 @@
 
 #### Defined in
 
-[classes/agent.class.ts:21](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/agent.class.ts#L21)
+[classes/agent.class.ts:21](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/agent.class.ts#L21)

@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[classes/state.class.ts:2](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/state.class.ts#L2)
+[classes/state.class.ts:2](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/state.class.ts#L2)
 
 ## Methods
 
@@ -36,4 +36,4 @@
 
 #### Defined in
 
-[classes/state.class.ts:3](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/state.class.ts#L3)
+[classes/state.class.ts:3](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/state.class.ts#L3)

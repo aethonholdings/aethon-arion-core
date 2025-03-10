@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:18](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L18)
+[classes/organisation.class.ts:18](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L18)
 
 ## Properties
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:12](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L12)
+[classes/organisation.class.ts:12](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L12)
 
 ***
 
@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:11](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L11)
+[classes/organisation.class.ts:11](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L11)
 
 ***
 
@@ -60,7 +60,7 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:15](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L15)
+[classes/organisation.class.ts:15](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L15)
 
 ***
 
@@ -70,7 +70,7 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:10](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L10)
+[classes/organisation.class.ts:10](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L10)
 
 ***
 
@@ -80,7 +80,7 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:13](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L13)
+[classes/organisation.class.ts:13](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L13)
 
 ***
 
@@ -90,7 +90,7 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:14](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L14)
+[classes/organisation.class.ts:14](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L14)
 
 ## Methods
 
@@ -110,7 +110,7 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:108](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L108)
+[classes/organisation.class.ts:108](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L108)
 
 ***
 
@@ -124,7 +124,7 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:72](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L72)
+[classes/organisation.class.ts:72](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L72)
 
 ***
 
@@ -138,7 +138,7 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:60](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L60)
+[classes/organisation.class.ts:60](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L60)
 
 ***
 
@@ -152,7 +152,7 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:56](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L56)
+[classes/organisation.class.ts:56](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L56)
 
 ***
 
@@ -166,7 +166,7 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:52](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L52)
+[classes/organisation.class.ts:52](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L52)
 
 ***
 
@@ -180,7 +180,7 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:64](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L64)
+[classes/organisation.class.ts:64](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L64)
 
 ***
 
@@ -194,7 +194,7 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:68](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L68)
+[classes/organisation.class.ts:68](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L68)
 
 ***
 
@@ -208,7 +208,7 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:45](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L45)
+[classes/organisation.class.ts:45](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L45)
 
 ***
 
@@ -222,4 +222,4 @@
 
 #### Defined in
 
-[classes/organisation.class.ts:29](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/organisation.class.ts#L29)
+[classes/organisation.class.ts:29](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/organisation.class.ts#L29)

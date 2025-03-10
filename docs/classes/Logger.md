@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[classes/logger.class.ts:9](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/logger.class.ts#L9)
+[classes/logger.class.ts:9](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/logger.class.ts#L9)
 
 ## Methods
 
@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[classes/logger.class.ts:32](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/logger.class.ts#L32)
+[classes/logger.class.ts:32](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/logger.class.ts#L32)
 
 ***
 
@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[classes/logger.class.ts:16](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/logger.class.ts#L16)
+[classes/logger.class.ts:16](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/logger.class.ts#L16)
 
 ***
 
@@ -68,7 +68,7 @@
 
 #### Defined in
 
-[classes/logger.class.ts:20](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/logger.class.ts#L20)
+[classes/logger.class.ts:20](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/logger.class.ts#L20)
 
 ***
 
@@ -86,7 +86,7 @@
 
 #### Defined in
 
-[classes/logger.class.ts:24](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/logger.class.ts#L24)
+[classes/logger.class.ts:24](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/logger.class.ts#L24)
 
 ***
 
@@ -104,4 +104,4 @@
 
 #### Defined in
 
-[classes/logger.class.ts:28](https://github.com/aethonholdings/aethon-arion-core/blob/614483ba57d5fbb623f57bd4b89da6d2a5843560/src/classes/logger.class.ts#L28)
+[classes/logger.class.ts:28](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/logger.class.ts#L28)
