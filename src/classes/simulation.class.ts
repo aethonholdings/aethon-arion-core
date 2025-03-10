@@ -1,10 +1,10 @@
-import { RandomStreamFactory } from "./class.random.stream.factory";
-import { SimulationConfig, OrgModelConfig, StepOutput } from "../interfaces/interfaces";
-import { Organisation } from "./class.organisation";
-import { Logger } from "./class.logger";
+import { RandomStreamFactory } from "./random-stream-factory.class";
+import { SimulationConfig, OrgModelConfig, StepOutput } from "../interfaces/core.interfaces";
+import { Organisation } from "./organisation.class";
+import { Logger } from "./logger.class";
 import { Observable } from "rxjs";
 
-export abstract class Simulation {
+export class Simulation {
     protected name: string = "Simulation";
     protected config: SimulationConfig;
     protected orgModelConfig: OrgModelConfig;
@@ -13,20 +13,25 @@ export abstract class Simulation {
     protected clockTicks: number;
     protected organisation: Organisation;
 
-    constructor(simConfig: SimulationConfig, logger: Logger, randomStreamFactory: RandomStreamFactory) {
+    constructor(
+        simConfig: SimulationConfig,
+        logger: Logger,
+        randomStreamFactory: RandomStreamFactory,
+        organisation: Organisation
+    ) {
         this.logger = logger;
         this._log(`Initialising Simulation`);
         this.orgModelConfig = simConfig.orgConfig;
         this.randomStreamFactory = randomStreamFactory;
         this.config = simConfig;
         this.clockTicks = (this.config.days * 8 * 60 * 60) / this.orgModelConfig.clockTickSeconds;
-        this.organisation = this.initialiseOrg();
+        this.organisation = organisation;
         this._log(`Simulation initialised`);
     }
 
     run$(): Observable<StepOutput> {
         this._log(`Running simulation for ${this.clockTicks} clock ticks`);
-        let stepOutput$ = new Observable<StepOutput>((subscriber) => {
+        const stepOutput$ = new Observable<StepOutput>((subscriber) => {
             for (let tick: number = 0; tick < this.clockTicks; tick++) {
                 this._log(`Beginning clock tick ${tick}`, { clockTick: tick });
                 this.organisation.transitionState();
@@ -37,8 +42,6 @@ export abstract class Simulation {
         });
         return stepOutput$;
     }
-
-    protected abstract initialiseOrg(): Organisation;
 
     private _log(message: string, data?: any): void {
         this.logger.trace({

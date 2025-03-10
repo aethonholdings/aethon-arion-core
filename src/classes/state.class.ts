@@ -1,4 +1,4 @@
 export abstract class State {
-    constructor(params?: any) {}
+    constructor() {}
     abstract emit(params?: any): number[];
 }

@@ -1,9 +1,9 @@
-import { Utils } from "../modules/module.utils";
-import { Agent } from "./class.agent";
-import { State } from "./class.state";
-import { RandomStream } from "./class.random.stream";
-import { AgentSetTensors, Targets } from "../interfaces/interfaces";
-import { Logger } from "./class.logger";
+import { Utils } from "../modules/utils.module";
+import { Agent } from "./agent.class";
+import { State } from "./state.class";
+import { RandomStream } from "./random-stream.class";
+import { AgentSetTensors, Targets } from "../interfaces/core.interfaces";
+import { Logger } from "./logger.class";
 
 export class AgentSet {
     protected name: string = "AgentSet";
@@ -110,7 +110,7 @@ export class AgentSet {
     }
 
     emitControlInputTensor(): number[][] {
-        let controlInputTensor: number[][] = [];
+        const controlInputTensor: number[][] = [];
         for (let alpha = 0; alpha < this.agents.length; alpha++) {
             // calculate the control input tensor
             controlInputTensor.push(this.agents[alpha].emitWorkstationControlTensor()); // emit control tensors for each agent
@@ -133,7 +133,7 @@ export class AgentSet {
     }
 
     getAgentStateArray(): number[] {
-        let array: number[] = [];
+        const array: number[] = [];
         for (let alpha = 0; alpha < this.agents.length; alpha++) array.push(this.agents[alpha].getStateIndex());
         return array;
     }
@@ -186,8 +186,8 @@ export class AgentSet {
                 for (let tau = 0; tau < this.stateCount; tau++) {
                     this.deltaP[alpha][sigma][tau] = 0;
                     for (let lambda = 0; lambda < this.stateCount; lambda++) {
-                        let delta: number = tau === lambda ? 1 : 0;
-                        let jacobian =
+                        const delta: number = tau === lambda ? 1 : 0;
+                        const jacobian =
                             this.priorityTensor[alpha][sigma][tau] *
                             (delta - this.priorityTensor[alpha][sigma][lambda]);
                         this.deltaP[alpha][sigma][tau] += jacobian * this.deltaW[alpha][sigma][lambda];
@@ -203,7 +203,7 @@ export class AgentSet {
                 let saturation: boolean = false;
                 for (let tau = 0; tau < this.stateCount; tau++) {
                     // force regularisation of the priority matrix in case of high gains or long delta t which may cause saturation
-                    let tmp = this.priorityTensor[alpha][sigma][tau];
+                    const tmp = this.priorityTensor[alpha][sigma][tau];
                     if (this.deltaP[alpha][sigma][tau] < -tmp || this.deltaP[alpha][sigma][tau] > 1 - tmp) {
                         saturation = true;
                         this.deltaP[alpha][sigma][tau] < -tmp
@@ -261,7 +261,7 @@ export class AgentSet {
             const agentCount = priorityTensorShape[0];
             if (agentCount === 0) throw new Error("No agents in agent set.");
             if (this.states.length === 0) throw new Error("No states in state set.");
-            
+
             const stateCount = this.states.length;
             if (stateCount !== priorityTensorShape[1] || stateCount !== priorityTensorShape[2])
                 throw new Error("Inconsistent state set size and priority tensor dimensions.");

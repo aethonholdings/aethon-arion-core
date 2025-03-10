@@ -1,10 +1,10 @@
-import type { LogType, Tensor } from "../types/types";
-import { Plant } from "../classes/class.plant";
-import { RandomStream } from "../classes/class.random.stream";
-import { Reporting } from "../classes/class.reporting";
-import { Board } from "../classes/class.board";
-import { AgentSet } from "../classes/class.agent.set";
-import { Organisation } from "../classes/class.organisation";
+import type { LogType, Tensor } from "../types/core.types";
+import { Plant } from "../classes/plant.class";
+import { RandomStream } from "../classes/random-stream.class";
+import { Reporting } from "../classes/reporting.class";
+import { Board } from "../classes/board.class";
+import { AgentSet } from "../classes/agent-set.class";
+import { Organisation } from "../classes/organisation.class";
 
 // CONFIG ---------------------------------
 

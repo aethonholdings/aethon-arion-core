@@ -1,6 +1,6 @@
 import * as Matrix from "ml-matrix"; // https://www.npmjs.com/package/ml-matrix
-import type { Tensor } from "../types/types";
-export type { Tensor } from "../types/types";
+import type { Tensor } from "../types/core.types";
+export type { Tensor } from "../types/core.types";
 
 export namespace Utils {
     export function tensor(dataOrShape: Tensor, initialiser?: (x?: number, y?: number) => number): Tensor {
@@ -10,7 +10,7 @@ export namespace Utils {
             output = data;
         } else {
             const shape = dataOrShape as number[];
-            let nestArray: number[] = JSON.parse(JSON.stringify(shape));
+            const nestArray: number[] = JSON.parse(JSON.stringify(shape));
             if (shape.length > 1) nestArray.splice(0, 1);
             for (let i = 0; i < shape[0]; i++) {
                 shape.length == 1 ? output.push(initialiser()) : output.push(tensor(nestArray, initialiser));

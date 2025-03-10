@@ -1,9 +1,9 @@
-import { State } from "./class.state";
+import { State } from "./state.class";
 
 export class Agent {
     protected name: string = "Agent";
     protected stateIndex: number;
-    private states: State[]
+    private states: State[];
 
     constructor(initialStateIndex: number, states: State[]) {
         this.stateIndex = initialStateIndex;

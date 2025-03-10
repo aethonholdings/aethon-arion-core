@@ -1,6 +1,6 @@
 import { Observable, Subscriber } from "rxjs";
-import { LogLine, LogMessage } from "../interfaces/interfaces";
-import { LogType } from "../types/types";
+import { LogLine, LogMessage } from "../interfaces/core.interfaces";
+import { LogType } from "../types/core.types";
 
 export class Logger {
     private broadcast$: Subscriber<LogLine>;

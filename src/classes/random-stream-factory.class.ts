@@ -1,4 +1,4 @@
-import { RandomStream, StaticRandomStream, DynamicRandomStream } from "./class.random.stream";
+import { RandomStream, StaticRandomStream, DynamicRandomStream } from "./random-stream.class";
 
 export class RandomStreamFactory {
     streams: RandomStream[] = [];
