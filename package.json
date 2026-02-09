@@ -3,6 +3,10 @@
   "version": "0.2.1",
   "description": "The Arion project core classes",
   "main": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
