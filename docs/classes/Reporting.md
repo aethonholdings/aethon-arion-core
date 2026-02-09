@@ -6,25 +6,122 @@
 
 # Class: `abstract` Reporting
 
+Abstract base class for calculating performance metrics and KPIs.
+
+## Remarks
+
+The Reporting subsystem computes performance metrics based on the organisation's
+operational state. These metrics provide feedback to:
+- The Board for strategic target updates
+- Agents via incentive tensors to shape behavior
+
+**Metric Calculation:**
+
+Reporting metrics are computed from three sources:
+```
+ψ(t) = g(χ(t), Δχ(t), u(t))
+```
+
+Where:
+- `ψ(t)` = Reporting metrics at time t
+- `χ(t)` = Plant state (current levels)
+- `Δχ(t)` = Plant state changes (rates)
+- `u(t)` = Agent control inputs (decisions)
+- `g()` = Metric calculation function (defined in concrete implementations)
+
+**Example Metrics:**
+
+- **Productivity**: Output per unit time (uses `Δχ`)
+- **Utilization**: Resource usage ratio (uses `χ` and `u`)
+- **Quality**: Defect rates (uses `χ` and `u`)
+- **Efficiency**: Output/input ratio (uses all three)
+- **Service Level**: Demand satisfaction rate (uses `χ` and `Δχ`)
+
+**Delta Tracking:**
+
+Like Plant, Reporting maintains `delta` to track metric changes:
+```
+Δψ(t) = ψ(t) - ψ(t-1)
+```
+
+**Degrees of Freedom:**
+
+The number of metrics (ψ) defines the reporting degrees of freedom.
+This must match:
+- Board reporting target vector length
+- AgentSet incentive tensor 4th dimension
+
+## Example
+
+```typescript
+// Example concrete implementation
+class ProductionReporting extends Reporting {
+  transitionState(
+    stateTensor: Tensor,
+    deltaStateTensor: Tensor,
+    controlInputTensor: Tensor
+  ): number[] {
+    const plantState = stateTensor as number[];
+    const plantDelta = deltaStateTensor as number[];
+
+    const oldMetrics = [...this.reportingTensor];
+
+    // Metric 1: Production rate (from plant delta)
+    this.reportingTensor[0] = Math.max(0, plantDelta[0]);
+
+    // Metric 2: Inventory utilization (from plant state)
+    this.reportingTensor[1] = plantState[0] / 100.0;
+
+    // Calculate delta
+    this.delta = this.reportingTensor.map((m, i) => m - oldMetrics[i]);
+
+    return this.reportingTensor;
+  }
+}
+
+// Usage
+const initialMetrics = [0.0, 0.5];  // [production_rate, utilization]
+const reporting = new ProductionReporting(initialMetrics, logger);
+```
+
 ## Constructors
 
 ### new Reporting()
 
 > **new Reporting**(`initialReportingTensor`, `logger`): [`Reporting`](Reporting.md)
 
+Creates a new Reporting subsystem with specified initial metrics.
+
 #### Parameters
 
 • **initialReportingTensor**: `number`[]
 
+Initial values for all performance metrics
+
 • **logger**: [`Logger`](Logger.md)
+
+Observable logging system
 
 #### Returns
 
 [`Reporting`](Reporting.md)
 
+#### Remarks
+
+The delta tensor is initialized to zeros with the same shape as the reporting tensor.
+Delta values are updated during each `transitionState()` call to track
+metric trends.
+
+#### Example
+
+```typescript
+const initialMetrics = [0.0, 0.85, 1.0];
+const reporting = new C1Reporting(initialMetrics, logger);
+```
+
 #### Defined in
 
-[classes/reporting.class.ts:11](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/reporting.class.ts#L11)
+[classes/reporting.class.ts:107](https://github.com/aethonholdings/aethon-arion-core/blob/414bb030049a6abc8a30c71711eb4fb731848e17/src/classes/reporting.class.ts#L107)
 
 ## Properties
 
@@ -34,7 +131,7 @@
 
 #### Defined in
 
-[classes/reporting.class.ts:8](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/reporting.class.ts#L8)
+[classes/reporting.class.ts:87](https://github.com/aethonholdings/aethon-arion-core/blob/414bb030049a6abc8a30c71711eb4fb731848e17/src/classes/reporting.class.ts#L87)
 
 ***
 
@@ -44,7 +141,7 @@
 
 #### Defined in
 
-[classes/reporting.class.ts:9](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/reporting.class.ts#L9)
+[classes/reporting.class.ts:88](https://github.com/aethonholdings/aethon-arion-core/blob/414bb030049a6abc8a30c71711eb4fb731848e17/src/classes/reporting.class.ts#L88)
 
 ***
 
@@ -54,7 +151,7 @@
 
 #### Defined in
 
-[classes/reporting.class.ts:6](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/reporting.class.ts#L6)
+[classes/reporting.class.ts:85](https://github.com/aethonholdings/aethon-arion-core/blob/414bb030049a6abc8a30c71711eb4fb731848e17/src/classes/reporting.class.ts#L85)
 
 ***
 
@@ -64,7 +161,7 @@
 
 #### Defined in
 
-[classes/reporting.class.ts:7](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/reporting.class.ts#L7)
+[classes/reporting.class.ts:86](https://github.com/aethonholdings/aethon-arion-core/blob/414bb030049a6abc8a30c71711eb4fb731848e17/src/classes/reporting.class.ts#L86)
 
 ## Methods
 
@@ -72,11 +169,19 @@
 
 > `protected` **\_log**(`message`, `data`?): `void`
 
+**`Internal`**
+
+Logs a trace-level diagnostic message.
+
 #### Parameters
 
 • **message**: `string`
 
+Message content
+
 • **data?**: `any`
+
+Optional structured data to include
 
 #### Returns
 
@@ -84,7 +189,7 @@
 
 #### Defined in
 
-[classes/reporting.class.ts:35](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/reporting.class.ts#L35)
+[classes/reporting.class.ts:227](https://github.com/aethonholdings/aethon-arion-core/blob/414bb030049a6abc8a30c71711eb4fb731848e17/src/classes/reporting.class.ts#L227)
 
 ***
 
@@ -92,13 +197,23 @@
 
 > **getDegreesOfFreedom**(): `number`
 
+Returns the number of performance metrics (ψ).
+
 #### Returns
 
 `number`
 
+Dimensionality of the reporting metric space
+
+#### Remarks
+
+This value must match:
+- Board reporting target vector length
+- AgentSet incentive tensor 4th dimension
+
 #### Defined in
 
-[classes/reporting.class.ts:23](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/reporting.class.ts#L23)
+[classes/reporting.class.ts:193](https://github.com/aethonholdings/aethon-arion-core/blob/414bb030049a6abc8a30c71711eb4fb731848e17/src/classes/reporting.class.ts#L193)
 
 ***
 
@@ -106,13 +221,22 @@
 
 > **getDeltaTensor**(): `number`[]
 
+Returns the change in metrics from the previous time step.
+
 #### Returns
 
 `number`[]
 
+Delta vector `Δψ = ψ(t) - ψ(t-1)`
+
+#### Remarks
+
+Used to track metric trends and identify performance improvements
+or degradations over time.
+
 #### Defined in
 
-[classes/reporting.class.ts:31](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/reporting.class.ts#L31)
+[classes/reporting.class.ts:215](https://github.com/aethonholdings/aethon-arion-core/blob/414bb030049a6abc8a30c71711eb4fb731848e17/src/classes/reporting.class.ts#L215)
 
 ***
 
@@ -120,13 +244,17 @@
 
 > **getReportingTensor**(): `number`[]
 
+Returns the current performance metrics.
+
 #### Returns
 
 `number`[]
 
+Current values of all reporting metrics
+
 #### Defined in
 
-[classes/reporting.class.ts:27](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/reporting.class.ts#L27)
+[classes/reporting.class.ts:202](https://github.com/aethonholdings/aethon-arion-core/blob/414bb030049a6abc8a30c71711eb4fb731848e17/src/classes/reporting.class.ts#L202)
 
 ***
 
@@ -134,18 +262,86 @@
 
 > `abstract` **transitionState**(`stateTensor`, `deltaStateTensor`, `controlInputTensor`): `number`[]
 
+Calculates updated performance metrics based on plant and agent states.
+
 #### Parameters
 
 • **stateTensor**: [`Tensor`](../type-aliases/Tensor.md)
 
+Current plant state (χ)
+
 • **deltaStateTensor**: [`Tensor`](../type-aliases/Tensor.md)
 
+Change in plant state (Δχ)
+
 • **controlInputTensor**: [`Tensor`](../type-aliases/Tensor.md)
+
+Agent control inputs (u)
 
 #### Returns
 
 `number`[]
 
+Updated reporting metrics
+
+#### Remarks
+
+This abstract method must be implemented by concrete Reporting subclasses.
+It defines how performance metrics are calculated from observable system state.
+
+**Implementation Requirements:**
+
+1. Compute new metrics: `ψ(t+1) = g(χ(t+1), Δχ(t), u(t))`
+2. Calculate delta: `Δψ = ψ(t+1) - ψ(t)`
+3. Update `this.reportingTensor` and `this.delta`
+4. Return new metrics
+
+**Common Metric Patterns:**
+
+- **Rates**: Use `deltaStateTensor` (e.g., production rate, throughput)
+- **Ratios**: Use `stateTensor` (e.g., utilization = used/capacity)
+- **Efficiency**: Combine `stateTensor` and `controlInputTensor`
+- **Derived**: Complex calculations from multiple sources
+
+The metrics are observed by:
+- Board to update strategic targets
+- Agents via incentive tensors to influence behavior
+
+#### Example
+
+```typescript
+class ServiceReporting extends Reporting {
+  transitionState(
+    stateTensor: Tensor,
+    deltaStateTensor: Tensor,
+    controlInputTensor: Tensor
+  ): number[] {
+    const state = stateTensor as number[];
+    const delta = deltaStateTensor as number[];
+    const inputs = controlInputTensor as number[];
+
+    const oldMetrics = [...this.reportingTensor];
+
+    // Throughput: rate of change in cumulative output
+    this.reportingTensor[0] = Math.max(0, delta[0]);
+
+    // Service level: ratio of satisfied to total demand
+    const demand = 100.0;
+    this.reportingTensor[1] = Math.min(1.0, state[0] / demand);
+
+    // Efficiency: output per unit input
+    this.reportingTensor[2] = inputs[0] > 0
+      ? delta[0] / inputs[0]
+      : 0.0;
+
+    // Calculate delta
+    this.delta = this.reportingTensor.map((m, i) => m - oldMetrics[i]);
+
+    return this.reportingTensor;
+  }
+}
+```
+
 #### Defined in
 
-[classes/reporting.class.ts:21](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/reporting.class.ts#L21)
+[classes/reporting.class.ts:181](https://github.com/aethonholdings/aethon-arion-core/blob/414bb030049a6abc8a30c71711eb4fb731848e17/src/classes/reporting.class.ts#L181)

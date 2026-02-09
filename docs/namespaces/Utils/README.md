@@ -6,6 +6,15 @@
 
 # Utils
 
+Utility namespace providing mathematical operations for tensors and matrices.
+
+## Remarks
+
+The Utils module provides high-performance tensor operations optimized for
+multi-agent simulations. All operations are designed to work with the
+flexible `Tensor` type which can represent scalars, vectors, matrices,
+or higher-dimensional tensors.
+
 ## Index
 
 ### Functions

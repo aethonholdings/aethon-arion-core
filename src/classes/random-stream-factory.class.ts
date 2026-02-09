@@ -7,7 +7,7 @@ export class RandomStreamFactory {
     private type: "static" | "random";
 
     constructor(seeds?: number[]) {
-        if (seeds) {
+        if (seeds && seeds.length > 0) {
             this.seeds = seeds;
             this.type = "static";
         } else {

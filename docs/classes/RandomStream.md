@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[classes/random-stream.class.ts:2](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/random-stream.class.ts#L2)
+[classes/random-stream.class.ts:2](https://github.com/aethonholdings/aethon-arion-core/blob/414bb030049a6abc8a30c71711eb4fb731848e17/src/classes/random-stream.class.ts#L2)
 
 ## Methods
 
@@ -32,4 +32,4 @@
 
 #### Defined in
 
-[classes/random-stream.class.ts:3](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/random-stream.class.ts#L3)
+[classes/random-stream.class.ts:3](https://github.com/aethonholdings/aethon-arion-core/blob/414bb030049a6abc8a30c71711eb4fb731848e17/src/classes/random-stream.class.ts#L3)

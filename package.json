@@ -1,6 +1,6 @@
 {
   "name": "aethon-arion-core",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "The Arion project core classes",
   "main": "dist/index.js",
   "scripts": {

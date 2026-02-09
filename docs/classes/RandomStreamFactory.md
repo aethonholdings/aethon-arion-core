@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[classes/random-stream-factory.class.ts:9](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/random-stream-factory.class.ts#L9)
+[classes/random-stream-factory.class.ts:9](https://github.com/aethonholdings/aethon-arion-core/blob/414bb030049a6abc8a30c71711eb4fb731848e17/src/classes/random-stream-factory.class.ts#L9)
 
 ## Properties
 
@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[classes/random-stream-factory.class.ts:4](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/random-stream-factory.class.ts#L4)
+[classes/random-stream-factory.class.ts:4](https://github.com/aethonholdings/aethon-arion-core/blob/414bb030049a6abc8a30c71711eb4fb731848e17/src/classes/random-stream-factory.class.ts#L4)
 
 ## Methods
 
@@ -46,4 +46,4 @@
 
 #### Defined in
 
-[classes/random-stream-factory.class.ts:20](https://github.com/aethonholdings/aethon-arion-core/blob/269f5bb4f274bbec10e2951e3d1cb3071c1a2811/src/classes/random-stream-factory.class.ts#L20)
+[classes/random-stream-factory.class.ts:20](https://github.com/aethonholdings/aethon-arion-core/blob/414bb030049a6abc8a30c71711eb4fb731848e17/src/classes/random-stream-factory.class.ts#L20)
