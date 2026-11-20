@@ -98,7 +98,9 @@ export class Organisation {
         this.agentSet = agentSet;
         this.plant = plant;
         this.reporting = reporting;
-        this.checkConsistency();
+        if (!this.checkConsistency()) {
+            throw new Error("Organisation tensor dimensions are inconsistent; see the error log for details");
+        }
         this._log("Organisation initialised");
     }
 

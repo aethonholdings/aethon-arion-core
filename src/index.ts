@@ -27,6 +27,6 @@ export { Simulation } from "./classes/simulation.class";
 
 // utils classes
 export { Logger } from "./classes/logger.class";
-export { RandomStream } from "./classes/random-stream.class";
+export { RandomStream, StaticRandomStream, DynamicRandomStream, mixSeed } from "./classes/random-stream.class";
 export { RandomStreamFactory } from "./classes/random-stream-factory.class";
 export { Utils } from "./modules/utils.module";

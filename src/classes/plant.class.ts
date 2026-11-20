@@ -94,7 +94,7 @@ export abstract class Plant {
     constructor(initialStateTensor: number[], logger: Logger) {
         this.logger = logger;
         this._log("Initialising Plant");
-        this.stateTensor = initialStateTensor;
+        this.stateTensor = [...initialStateTensor];
         this.delta = Utils.tensor(Utils.shape(initialStateTensor), () => {
             return 0;
         }) as number[];

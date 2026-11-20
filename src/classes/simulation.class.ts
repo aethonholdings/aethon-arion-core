@@ -110,7 +110,16 @@ export class Simulation {
         this.orgModelConfig = simConfig.orgConfig;
         this.randomStreamFactory = randomStreamFactory;
         this.config = simConfig;
-        this.clockTicks = (this.config.days * 8 * 60 * 60) / this.orgModelConfig.clockTickSeconds;
+        const ticks = (this.config.days * 8 * 60 * 60) / this.orgModelConfig.clockTickSeconds;
+        // the horizon must be a whole, positive number of clock ticks; otherwise the run length is ambiguous
+        // (a fractional count silently runs one extra tick) or empty
+        if (!Number.isInteger(ticks) || ticks <= 0) {
+            throw new Error(
+                `Simulation horizon of ${this.config.days} days is not a positive whole number of ` +
+                    `${this.orgModelConfig.clockTickSeconds}-second clock ticks`
+            );
+        }
+        this.clockTicks = ticks;
         this.organisation = organisation;
         this._log(`Simulation initialised`);
     }
@@ -180,6 +189,16 @@ export class Simulation {
      * });
      * ```
      */
+    /** Returns the organisation being simulated. */
+    getOrganisation(): Organisation {
+        return this.organisation;
+    }
+
+    /** Returns the number of clock ticks the simulation runs for. */
+    getClockTicks(): number {
+        return this.clockTicks;
+    }
+
     run$(): Observable<StepOutput> {
         this._log(`Running simulation for ${this.clockTicks} clock ticks`);
         const stepOutput$ = new Observable<StepOutput>((subscriber) => {

@@ -107,7 +107,7 @@ export abstract class Reporting {
     constructor(initialReportingTensor: number[], logger: Logger) {
         this.logger = logger;
         this._log("Initialising Reporting");
-        this.reportingTensor = initialReportingTensor;
+        this.reportingTensor = [...initialReportingTensor];
         this.delta = Utils.tensor(Utils.shape(initialReportingTensor), () => {
             return 0;
         }) as number[];

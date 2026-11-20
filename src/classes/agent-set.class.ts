@@ -60,6 +60,12 @@ export class AgentSet {
      */
     private deltaT: number;
 
+    /**
+     * Lower bound kept on every positive transition probability (and 1 - floor as upper bound) during updates.
+     * Prevents absorbing zeros; small enough not to affect dynamics materially.
+     */
+    protected priorityFloor: number = 1e-6;
+
     /** Array of possible agent states */
     private states: State[];
 
@@ -121,17 +127,21 @@ export class AgentSet {
         this.deltaT = deltaT;
         this.states = states;
         this.randomStream = randomStream;
-        this.priorityTensor = agentSetTensors.priorityTensor as number[][][];
-        this.influenceTensor = agentSetTensors.influenceTensor as number[][][][];
-        this.judgmentTensor = agentSetTensors.judgmentTensor as number[][][][];
-        this.incentiveTensor = agentSetTensors.incentiveTensor as number[][][][];
+        // deep copies: the priority tensor evolves in place during the simulation and must not alias the
+        // caller's configuration (re-running the same config would otherwise start from the evolved tensor)
+        this.priorityTensor = JSON.parse(JSON.stringify(agentSetTensors.priorityTensor)) as number[][][];
+        this.influenceTensor = JSON.parse(JSON.stringify(agentSetTensors.influenceTensor)) as number[][][][];
+        this.judgmentTensor = JSON.parse(JSON.stringify(agentSetTensors.judgmentTensor)) as number[][][][];
+        this.incentiveTensor = JSON.parse(JSON.stringify(agentSetTensors.incentiveTensor)) as number[][][][];
         this.agentCount = Utils.shape(this.priorityTensor)[0];
         this.stateCount = Utils.shape(this.priorityTensor)[1];
         this.plantDegreesOfFreedom = Utils.shape(agentSetTensors.judgmentTensor)[3];
         this.reportingDimensions = Utils.shape(agentSetTensors.incentiveTensor)[3];
 
         // check variable consistency
-        this.checkConsistency();
+        if (!this.checkConsistency()) {
+            throw new Error("Agent set tensors are inconsistent; see the error log for details");
+        }
 
         // initialise the agent set
         this.agents = [];
@@ -394,17 +404,23 @@ export class AgentSet {
             for (let sigma = 0; sigma < this.stateCount; sigma++) {
                 let saturation: boolean = false;
                 for (let tau = 0; tau < this.stateCount; tau++) {
-                    // force regularisation of the priority matrix in case of high gains or long delta t which may cause saturation
-                    const tmp = this.priorityTensor[alpha][sigma][tau];
-                    if (this.deltaP[alpha][sigma][tau] < -tmp || this.deltaP[alpha][sigma][tau] > 1 - tmp) {
+                    // regularise to keep the row inside the probability simplex. A probability that is positive
+                    // is kept at or above the floor epsilon: under the softmax Jacobian an entry that reaches exactly
+                    // 0 receives a zero update forever, so a hard clamp at 0 would make the behaviour absorbing.
+                    // Entries configured as exactly 0 are structural (forbidden transitions) and stay 0.
+                    const p = this.priorityTensor[alpha][sigma][tau];
+                    if (p === 0 && this.deltaP[alpha][sigma][tau] === 0) continue;
+                    const floor = this.priorityFloor;
+                    let next = p + this.deltaP[alpha][sigma][tau];
+                    if (next < floor) {
                         saturation = true;
-                        this.deltaP[alpha][sigma][tau] < -tmp
-                            ? (this.deltaP[alpha][sigma][tau] = -tmp)
-                            : (this.deltaP[alpha][sigma][tau] = 1 - tmp);
+                        next = floor;
+                    } else if (next > 1 - floor) {
+                        saturation = true;
+                        next = 1 - floor;
                     }
-                    this.priorityTensor[alpha][sigma][tau] += this.deltaP[alpha][sigma][tau];
-                    this.priorityTensor[alpha][sigma][tau] =
-                        Math.round(this.priorityTensor[alpha][sigma][tau] * 10000) / 10000;
+                    this.deltaP[alpha][sigma][tau] = next - p;
+                    this.priorityTensor[alpha][sigma][tau] = next;
                 }
                 // perform a final normalisation of the tensor row alpha sigma, to ensure that the sum of the row is 1 in case of numerical rounding
                 let sum: number = 0;
@@ -514,6 +530,23 @@ export class AgentSet {
                     }
                     if (incentiveTensor[alpha][sigma].length !== stateCount) {
                         throw new Error("Inconsistent state dimensions (tau) in incentive tensor.");
+                    }
+                    // every row of the priority tensor is a transition distribution
+                    const rowSum = priorityTensor[alpha][sigma].reduce((acc: number, p: number) => acc + p, 0);
+                    if (
+                        Math.abs(rowSum - 1) > 1e-6 ||
+                        priorityTensor[alpha][sigma].some((p: number) => !(p >= 0 && p <= 1))
+                    ) {
+                        throw new Error(`Priority tensor row [${alpha}][${sigma}] is not a probability distribution.`);
+                    }
+                    // the last dimension of the judgment and incentive tensors must be uniform (no jagged tensors)
+                    for (let tau = 0; tau < stateCount; tau++) {
+                        if (judgmentTensor[alpha][sigma][tau].length !== judgmentTensorShape[3]) {
+                            throw new Error("Inconsistent plant dimensions (chi) in judgment tensor.");
+                        }
+                        if (incentiveTensor[alpha][sigma][tau].length !== incentiveTensorShape[3]) {
+                            throw new Error("Inconsistent reporting dimensions (psi) in incentive tensor.");
+                        }
                     }
                 }
             }
