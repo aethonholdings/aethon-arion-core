@@ -328,7 +328,7 @@ export class AgentSet {
      *    ```
      *    ΔW[α][σ][τ] = Σ(W[α][β][σ][τ] * (P[α][σ][τ] - P[β][σ][τ])) * Δt
      *                + Σ(J[α][σ][τ][χ] * (x[χ] - x*[χ])) * Δt
-     *                + Σ(I[α][σ][τ][ψ] * (r[ψ] - r*[ψ])) * Δt
+     *                + Σ(I[α][σ][τ][ψ] * g(r[ψ], r*[ψ])) * Δt,   g(r, r*) = (r - r*) / max(|r|, |r*|)
      *    ```
      *
      * 2. **Calculate ΔP** (using Jacobian of simplex constraint):
@@ -355,6 +355,15 @@ export class AgentSet {
     recalculateParams(targets: Targets, plantState: number[], reporting: number[]): AgentSet {
         this._log("Recalculating priority tensor");
 
+        // incentive gaps are measured relative to the target: (r - r*) / max(|r|, |r*|), 0 when both are 0.
+        // This is the fractional shortfall (r - r*) / r* in the usual case, bounded in [-2, 2], defined for a zero
+        // target, and independent of the units, the tick length and the horizon of cumulative metrics (an absolute
+        // gap in a cumulative metric grows with the number of ticks, which made the dynamics per tick rather than
+        // per second and dependent on the simulated horizon)
+        const relativeGap: number[] = reporting.map((value: number, psi: number) =>
+            AgentSet.relativeGap(value, targets.reporting[psi])
+        );
+
         // calculate the deltaW entries for each entry in the priority matrix
         for (let alpha = 0; alpha < this.agentCount; alpha++) {
             for (let sigma = 0; sigma < this.stateCount; sigma++) {
@@ -375,7 +384,7 @@ export class AgentSet {
                     for (let psi = 0; psi < this.reportingDimensions; psi++) {
                         this.deltaW[alpha][sigma][tau] +=
                             this.incentiveTensor[alpha][sigma][tau][psi] *
-                            (reporting[psi] - targets.reporting[psi]) *
+                            relativeGap[psi] *
                             this.deltaT;
                     }
                 }
@@ -477,6 +486,12 @@ export class AgentSet {
      *
      * @internal
      */
+    /** Relative gap (r - r*) / max(|r|, |r*|), 0 when both are 0; see {@link recalculateParams}. */
+    static relativeGap(value: number, target: number): number {
+        const scale = Math.max(Math.abs(value), Math.abs(target));
+        return scale === 0 ? 0 : (value - target) / scale;
+    }
+
     checkConsistency(): boolean {
         const priorityTensor = this.priorityTensor as number[][][];
         const influenceTensor = this.influenceTensor as number[][][][];

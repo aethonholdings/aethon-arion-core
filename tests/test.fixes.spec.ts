@@ -78,4 +78,12 @@ describe("Core fixes", () => {
         const f = RandomStreamFactory.seeded(7, 1);
         expect(f.newStream().next()).not.toEqual(f.newStream().next());
     });
+
+    it("measures incentive gaps relative to the target", () => {
+        expect(AgentSet.relativeGap(50, 100)).toBe(-0.5);
+        expect(AgentSet.relativeGap(150, 100)).toBeCloseTo(1 / 3, 12);
+        expect(AgentSet.relativeGap(0, 0)).toBe(0);
+        expect(AgentSet.relativeGap(5, 0)).toBe(1);
+        expect(AgentSet.relativeGap(0, 100)).toBe(-1);
+    });
 });
