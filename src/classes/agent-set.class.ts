@@ -53,8 +53,12 @@ export class AgentSet {
     /** 4D tensor `I[α][σ][τ][ψ]` representing agent incentives relative to reporting metrics */
     protected incentiveTensor: number[][][][];
 
-    /** Simulation time step in seconds */
-    private clockTick: number;
+    /**
+     * Integration time step Δt, in seconds of simulated time per clock tick (e.g. `clockTickSeconds` of the
+     * organisation model config). It scales every ΔW contribution in {@link recalculateParams}; the influence,
+     * judgment and incentive gains must therefore be expressed per second.
+     */
+    private deltaT: number;
 
     /** Array of possible agent states */
     private states: State[];
@@ -93,7 +97,7 @@ export class AgentSet {
      * @param states - Array of possible agent states
      * @param randomStream - Random number generator for stochastic transitions
      * @param logger - Logger instance for diagnostics
-     * @param clockTick - Simulation time step in seconds (default: 0.1)
+     * @param deltaT - Integration time step Δt in seconds per clock tick (pass the model's `clockTickSeconds`)
      *
      * @throws {Error} If tensor dimensions are inconsistent
      *
@@ -109,12 +113,12 @@ export class AgentSet {
         states: State[],
         randomStream: RandomStream,
         logger: Logger,
-        clockTick: number
+        deltaT: number
     ) {
         // initialise variables
         this.logger = logger;
         this._log("Initialising Agent Set");
-        this.clockTick = clockTick;
+        this.deltaT = deltaT;
         this.states = states;
         this.randomStream = randomStream;
         this.priorityTensor = agentSetTensors.priorityTensor as number[][][];
@@ -350,19 +354,19 @@ export class AgentSet {
                         this.deltaW[alpha][sigma][tau] +=
                             this.influenceTensor[alpha][beta][sigma][tau] *
                             (this.priorityTensor[alpha][sigma][tau] - this.priorityTensor[beta][sigma][tau]) *
-                            this.clockTick;
+                            this.deltaT;
                     }
                     for (let chi = 0; chi < this.plantDegreesOfFreedom; chi++) {
                         this.deltaW[alpha][sigma][tau] +=
                             this.judgmentTensor[alpha][sigma][tau][chi] *
                             (plantState[chi] - targets.plantState[chi]) *
-                            this.clockTick;
+                            this.deltaT;
                     }
                     for (let psi = 0; psi < this.reportingDimensions; psi++) {
                         this.deltaW[alpha][sigma][tau] +=
                             this.incentiveTensor[alpha][sigma][tau][psi] *
                             (reporting[psi] - targets.reporting[psi]) *
-                            this.clockTick;
+                            this.deltaT;
                     }
                 }
             }
