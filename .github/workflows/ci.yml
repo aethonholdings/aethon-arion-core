@@ -12,6 +12,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Restore the npm download cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: arion-${{ runner.os }}-${{ hashFiles('package.json') }}-${{ github.run_id }}
+          restore-keys: |
+            arion-${{ runner.os }}-${{ hashFiles('package.json') }}-
+            arion-${{ runner.os }}-
       # --legacy-peer-deps: the typedoc plugins pin incompatible typedoc peer ranges
       - run: npm install --no-audit --no-fund --legacy-peer-deps
       - run: npm run build
