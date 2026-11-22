@@ -86,4 +86,28 @@ describe("Core fixes", () => {
         expect(AgentSet.relativeGap(5, 0)).toBe(1);
         expect(AgentSet.relativeGap(0, 100)).toBe(-1);
     });
+
+    it("applies the linearised softmax update with second-order error (judgment term, 3 states)", () => {
+        class S0 extends TestStateA {}
+        class S2 extends TestStateB {}
+        const softmax = (w: number[]) => { const e = w.map(Math.exp); const t = e.reduce((a, b) => a + b, 0); return e.map((v) => v / t); };
+        const W0 = [0.3, -0.7, 0.1], P0 = softmax(W0), J = [0.8, -0.5, 1.3];
+        const errors: number[] = [];
+        const steps = [1e-2, 1e-3];
+        for (const h of steps) {
+            const t = {
+                priorityTensor: [[P0, P0, P0]],
+                influenceTensor: [[[[0, 0, 0], [0, 0, 0], [0, 0, 0]]]],
+                judgmentTensor: [[J.map((j) => [j * h]), J.map((j) => [j * h]), J.map((j) => [j * h])]],
+                incentiveTensor: [[[[0], [0], [0]], [[0], [0], [0]], [[0], [0], [0]]]]
+            };
+            const a = new AgentSet(t as any, [new S0(), new TestStateB(), new S2()], new StaticRandomStream(1), new Logger(), 1);
+            a.recalculateParams({ plantState: [0], reporting: [0] }, [1], [0]); // dW = h * J
+            const exact = softmax(W0.map((w, i) => w + h * J[i]));
+            errors.push(Math.max(...a.getTensors().priorityTensor[0][0].map((p: number, i: number) => Math.abs(p - exact[i]))));
+        }
+        const order = Math.log(errors[0] / errors[1]) / Math.log(steps[0] / steps[1]);
+        expect(order).toBeGreaterThan(1.8);
+        expect(order).toBeLessThan(2.2);
+    });
 });
